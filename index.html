@@ -366,6 +366,8 @@
   .pay-btn:hover{background:#D23F90;}
   .form-success .amount{color:var(--pink2);font-weight:800;}
   .form-success .note{margin-top:14px;font-size:.88rem;color:var(--grey);}
+  .coupon-msg{display:none;margin-top:7px;color:#E0245E;font-size:.85rem;font-weight:600;}
+  .coupon-msg.show{display:block;}
 
   /* ---------- SPEAKERS ---------- */
   .speakers-col{margin-top:44px;min-width:0;}
@@ -608,9 +610,10 @@
                 <div class="field-msg">Please select an option.</div>
               </div>
 
-              <div class="field">
+              <div class="field" id="couponField">
                 <label for="coupon">Coupon code <span style="color:var(--grey);font-weight:500;">(optional)</span></label>
                 <input id="coupon" name="coupon" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Enter code if you have one">
+                <div class="coupon-msg" id="couponMsg">Coupon is invalid.</div>
               </div>
 
               <button type="submit" class="submit-btn">Register now!</button>
@@ -706,6 +709,12 @@
       var success = document.getElementById("formSuccess");
       var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+      var couponField = document.getElementById("couponField");
+      var couponMsg = document.getElementById("couponMsg");
+      var couponInput = document.getElementById("coupon");
+      function clearCouponError(){ if(couponField){couponField.classList.remove("invalid");} if(couponMsg){couponMsg.classList.remove("show");} }
+      if(couponInput){ couponInput.addEventListener("input", clearCouponError); }
+
       function validateField(field){
         var radios = field.querySelectorAll('input[type="radio"]');
         if(radios.length){
@@ -788,6 +797,12 @@
         }
 
         tierFor(coupon).then(function(tier){
+          if(coupon && tier === "full"){
+            if(couponField){ couponField.classList.add("invalid"); }
+            if(couponMsg){ couponMsg.classList.add("show"); }
+            if(couponInput){ couponInput.focus(); }
+            return;
+          }
           obj.tier = tier;
           try{
             fetch(ENDPOINT, {
