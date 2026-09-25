@@ -803,7 +803,7 @@
             if(couponInput){ couponInput.focus(); }
             return;
           }
-          obj.tier = tier;
+          obj.tier = tier; obj.utm_source = window.__pmSrc || "";
           try{
             fetch(ENDPOINT, {
               method: "POST",
@@ -818,5 +818,10 @@
     })();
   </script>
 
+<script>(function(){try{var p=new URLSearchParams(location.search),vid="",src=p.get("utm_source")||"";
+try{vid=localStorage.getItem("pmv");if(!vid){vid=Math.random().toString(36).slice(2,10);localStorage.setItem("pmv",vid);}}catch(e){}
+try{if(src){sessionStorage.setItem("pms",src);}else{src=sessionStorage.getItem("pms")||"";}}catch(e){}
+window.__pmSrc=src;var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"mobile":"desktop";
+fetch("https://script.google.com/macros/s/AKfycbyHcEs-qkkdhUYwa2TOpARMbLlt6mhdU6m9Lj5-vTWM3OURaUVP1TArBNgSVnlKnfRWEg/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"view",utm_source:src,utm_medium:p.get("utm_medium")||"",utm_campaign:p.get("utm_campaign")||"",referrer:document.referrer||"",device:dev,lang:navigator.language||"",vid:vid})});}catch(e){}})();</script>
 </body>
 </html>
