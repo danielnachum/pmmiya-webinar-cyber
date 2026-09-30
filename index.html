@@ -866,7 +866,7 @@ try{vid=localStorage.getItem("pmv");if(!vid){vid=Math.random().toString(36).slic
 try{if(src){sessionStorage.setItem("pms",src);}else{src=sessionStorage.getItem("pms")||"";}}catch(e){}
 window.__pmSrc=src;var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?"mobile":"desktop";
 fetch("https://script.google.com/macros/s/AKfycbyHcEs-qkkdhUYwa2TOpARMbLlt6mhdU6m9Lj5-vTWM3OURaUVP1TArBNgSVnlKnfRWEg/exec",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"view",utm_source:src,utm_medium:p.get("utm_medium")||"",utm_campaign:p.get("utm_campaign")||"",referrer:document.referrer||"",device:dev,lang:navigator.language||"",vid:vid})});}catch(e){}})();</script>
-<div class="pm-pop" id="pmPop" role="dialog" aria-modal="true" aria-labelledby="pmPopT"><div class="pm-pop-card"><button class="pm-pop-x" id="pmPopX" aria-label="Close">&times;</button><h3 id="pmPopT">Still thinking it over?</h3><p>Here's a coupon for your seat: &#8362;15 instead of &#8362;25.</p><div class="pm-code">PMM&ne;PM</div><button class="pm-pop-btn" id="pmPopGo">Use the code</button></div></div>
+<div class="pm-pop" id="pmPop" role="dialog" aria-modal="true" aria-labelledby="pmPopT"><div class="pm-pop-card"><button class="pm-pop-x" id="pmPopX" aria-label="Close">&times;</button><h3 id="pmPopT">Still uncertain?</h3><p>Here's a coupon to help you make up your mind.</p><div class="pm-code">PMM&ne;PM</div><button class="pm-pop-btn" id="pmPopGo">Use the code</button></div></div>
 <script>
 (function(){
   var T=new Date('2026-10-06T11:00:00+03:00').getTime();
@@ -877,7 +877,7 @@ fetch("https://script.google.com/macros/s/AKfycbyHcEs-qkkdhUYwa2TOpARMbLlt6mhdU6
   try{n=(parseInt(localStorage.getItem('pmvc')||'0',10)||0)+1;localStorage.setItem('pmvc',n);shown=localStorage.getItem('pmpop');reg=localStorage.getItem('pmreg');}catch(e){}
   var pop=document.getElementById('pmPop');
   function close(){pop.classList.remove('show');}
-  if(n>=2&&!shown&&!reg&&pop){setTimeout(function(){pop.classList.add('show');try{localStorage.setItem('pmpop','1');}catch(e){}},1500);}
+  if(n>=3&&!shown&&!reg&&pop){setTimeout(function(){pop.classList.add('show');try{localStorage.setItem('pmpop','1');}catch(e){}},1500);}
   document.getElementById('pmPopX').onclick=close;
   pop.addEventListener('click',function(ev){if(ev.target===pop)close();});
   document.getElementById('pmPopGo').onclick=function(){close();var c=document.getElementById('coupon');if(c){c.value='PMM\u2260PM';c.dispatchEvent(new Event('input',{bubbles:true}));}var r=document.getElementById('register');if(r)r.scrollIntoView({behavior:'smooth'});};
