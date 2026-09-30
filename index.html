@@ -877,7 +877,7 @@ fetch("https://script.google.com/macros/s/AKfycbyHcEs-qkkdhUYwa2TOpARMbLlt6mhdU6
   try{n=(parseInt(localStorage.getItem('pmvc')||'0',10)||0)+1;localStorage.setItem('pmvc',n);shown=localStorage.getItem('pmpop');reg=localStorage.getItem('pmreg');}catch(e){}
   var pop=document.getElementById('pmPop');
   function close(){pop.classList.remove('show');}
-  if(n>=3&&!shown&&!reg&&pop){setTimeout(function(){pop.classList.add('show');try{localStorage.setItem('pmpop','1');}catch(e){}},1500);}
+  if(n>=2&&!shown&&!reg&&pop){setTimeout(function(){pop.classList.add('show');try{localStorage.setItem('pmpop','1');}catch(e){}},1500);}
   document.getElementById('pmPopX').onclick=close;
   pop.addEventListener('click',function(ev){if(ev.target===pop)close();});
   document.getElementById('pmPopGo').onclick=function(){close();var c=document.getElementById('coupon');if(c){c.value='PMM\u2260PM';c.dispatchEvent(new Event('input',{bubbles:true}));}var r=document.getElementById('register');if(r)r.scrollIntoView({behavior:'smooth'});};
