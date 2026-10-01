@@ -113,6 +113,7 @@
     text-shadow:0 3px 0 var(--green), 0 5px 0 rgba(159,240,42,.30);
     animation:flicker 6s linear infinite;
   }
+  h1.hero-title.yt{font-size:clamp(2rem,7.2vw,3.15rem);line-height:1.16;}
   .hero-title .hl{
     color:var(--green);
     text-shadow:0 3px 0 var(--pink), 0 5px 0 rgba(242,74,158,.32);
@@ -884,6 +885,6 @@ fetch("https://script.google.com/macros/s/AKfycbyHcEs-qkkdhUYwa2TOpARMbLlt6mhdU6
   var f=document.getElementById('regForm');if(f)f.addEventListener('submit',function(){try{localStorage.setItem('pmreg','1');}catch(e){}});
 })();
 </script>
-<script id="pmYT">(function(){try{var q=new URLSearchParams(location.search).get('utm_source')||'';var yt=/youtube/i.test(q)||/youtube\.com|youtu\.be/i.test(document.referrer);try{if(yt)sessionStorage.setItem('pmyt','1');else if(sessionStorage.getItem('pmyt'))yt=true;}catch(e){}if(!yt)return;var h=document.querySelector('h1.hero-title');if(h)h.innerHTML='Become a Marketing Expert in <span class="hl">Cybersecurity</span>';}catch(e){}})();</script>
+<script id="pmYT">(function(){try{var q=new URLSearchParams(location.search).get('utm_source')||'';var yt=/youtube/i.test(q)||/youtube\.com|youtu\.be/i.test(document.referrer);try{if(yt)sessionStorage.setItem('pmyt','1');else if(sessionStorage.getItem('pmyt'))yt=true;}catch(e){}if(!yt)return;var h=document.querySelector('h1.hero-title');if(h)h.classList.add('yt');h.innerHTML='Become a marketing expert in <span class="hl">cybersecurity</span>';}catch(e){}})();</script>
 </body>
 </html>
