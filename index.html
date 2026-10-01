@@ -114,6 +114,8 @@
     animation:flicker 6s linear infinite;
   }
   h1.hero-title.yt{font-size:clamp(2rem,7.2vw,3.15rem);line-height:1.16;}
+  .m-cta{display:none;}
+  @media (max-width:760px){.m-cta{display:block;position:fixed;left:16px;right:16px;bottom:16px;z-index:900;padding:15px;border-radius:14px;background:var(--pink2);color:#fff;text-align:center;font-family:var(--font);font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .25s,opacity .25s;}.m-cta.hide{transform:translateY(140%);opacity:0;pointer-events:none;}body{padding-bottom:84px;}}
   .hero-title .hl{
     color:var(--green);
     text-shadow:0 3px 0 var(--pink), 0 5px 0 rgba(242,74,158,.32);
@@ -885,6 +887,8 @@ fetch("https://script.google.com/macros/s/AKfycbyHcEs-qkkdhUYwa2TOpARMbLlt6mhdU6
   var f=document.getElementById('regForm');if(f)f.addEventListener('submit',function(){try{localStorage.setItem('pmreg','1');}catch(e){}});
 })();
 </script>
+<a class="m-cta" id="mCta" href="#register">Register now &rarr;</a>
+<script>(function(){var c=document.getElementById('mCta'),f=document.getElementById('register');if(!c||!f)return;c.addEventListener('click',function(e){e.preventDefault();f.scrollIntoView({behavior:'smooth',block:'start'});});if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(x){c.classList.toggle('hide',x.isIntersecting);});},{threshold:0.15}).observe(f);}})();</script>
 <script id="pmYT">(function(){try{var q=new URLSearchParams(location.search).get('utm_source')||'';var yt=/youtube/i.test(q)||/youtube\.com|youtu\.be/i.test(document.referrer);try{if(yt)sessionStorage.setItem('pmyt','1');else if(sessionStorage.getItem('pmyt'))yt=true;}catch(e){}if(!yt)return;var h=document.querySelector('h1.hero-title');if(h)h.classList.add('yt');h.innerHTML='Become a marketing expert in <span class="hl">cybersecurity</span>';}catch(e){}})();</script>
 </body>
 </html>
