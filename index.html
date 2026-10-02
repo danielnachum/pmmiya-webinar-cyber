@@ -898,7 +898,7 @@ if(U[0])U[0].innerHTML='<li>How a cyber startup becomes a market leader</li><li>
 if(H[1])H[1].innerHTML='You\u2019ll leave knowing:';
 if(U[1])U[1].innerHTML='<li>What the business side of cyber looks like in 2026</li><li>Which work actually matters when everything feels urgent</li><li>Whether this career path is right for you</li>';
 var b=document.querySelector('.back-cta-text');if(b)b.textContent='One hour can change where your career goes. Ready?';
-var tc='';try{tc=localStorage.getItem('pmytc')||'';if(!tc){tc=Math.random()<0.5?'free':'discount';localStorage.setItem('pmytc',tc);}localStorage.setItem('pmpop','1');}catch(e){tc=tc||'discount';}
+var tc='';try{tc='free';localStorage.setItem('pmytc',tc);localStorage.setItem('pmpop','1');}catch(e){tc=tc||'discount';}
 var code=tc==='free'?'mythos_kills_cyber':'PMM\u2260PM';var ci=document.getElementById('coupon');if(ci){ci.value=code;ci.dispatchEvent(new Event('input',{bubbles:true}));}
 var pn=document.querySelector('.price-note');if(pn)pn.innerHTML=tc==='free'?'YouTube viewers special: <s>&#8362;25</s> <b>FREE</b>. Your code is already applied.':'YouTube viewers special: <s>&#8362;25</s> <b>&#8362;15</b>. Your code is already applied.';
 setTimeout(function(){window.pmEv&&window.pmEv('yt_offer',tc,1)},1500);
